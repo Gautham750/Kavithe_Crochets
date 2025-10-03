@@ -19,6 +19,15 @@
             color: white;
             padding: 1rem 0;
             text-align: center;
+            position: relative;
+        }
+
+        .cart-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            cursor: pointer;
+            font-size: 2rem;
         }
 
         .product-section {
@@ -73,9 +82,44 @@
             padding: 1rem 0;
             background-color: #333;
             color: white;
-            position: absolute;
+            position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        /* Cart Sidebar Styles */
+        .cart-sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: white;
+        }
+
+        .cart-sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .cart-content {
+            padding: 2rem;
+        }
+
+        #cart-items-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
     </style>
 </head>
@@ -84,30 +128,78 @@
     <header>
         <h1>Welcome to My Awesome Store!</h1>
         <p>Browse our selection of amazing products.</p>
+        <span class="cart-icon" onclick="openNav()">🛒</span>
     </header>
 
     <main class="product-section">
         <div class="product-card">
-            <img src="https://via.placeholder.com/300" alt="A placeholder image for the Super Gadget">
+            <img src="https://images.unsplash.com/photo-1620000617300-84c6de77a67f" alt="A sleek electronic gadget.">
             <h3>The Super Gadget</h3>
-            <p>This is a description of the first product. It's truly amazing and will change your life.</p>
+            <p>This is the gadget that will revolutionize your life. It's sleek, powerful, and easy to use.</p>
             <p class="price">$99.99</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart('The Super Gadget', 99.99)">Add to Cart</button>
         </div>
         
         <div class="product-card">
-            <img src="https://via.placeholder.com/300" alt="A placeholder image for the Ultimate Widget">
-            <h3>The Ultimate Widget</h3>
-            <p>Here is another fantastic product with a unique set of features that you'll love.</p>
-            <p class="price">$49.50</p>
-            <button>Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1542393282-e565985055b8" alt="A vintage camera.">
+            <h3>The Vintage Camera</h3>
+            <p>Capture life's moments with a touch of nostalgia. This camera is a perfect blend of old and new.</p>
+            <p class="price">$250.00</p>
+            <button onclick="addToCart('The Vintage Camera', 250.00)">Add to Cart</button>
         </div>
 
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1628264560767-e9a656847846" alt="A stylish pair of headphones.">
+            <h3>Noise-Canceling Headphones</h3>
+            <p>Immerse yourself in your favorite music with crystal-clear sound and no distractions.</p>
+            <p class="price">$149.99</p>
+            <button onclick="addToCart('Noise-Canceling Headphones', 149.99)">Add to Cart</button>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 My Awesome Store. All rights reserved.</p>
     </footer>
 
+    <div id="cart-sidebar" class="cart-sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <ul id="cart-items-list">
+                </ul>
+            <p>Total: $<span id="cart-total">0.00</span></p>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let cartTotal = 0;
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            cartTotal += price;
+            updateCart();
+            openNav();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-items-list');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                cartList.appendChild(li);
+            });
+            document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+        }
+
+        function openNav() {
+            document.getElementById("cart-sidebar").style.width = "350px";
+        }
+
+        function closeNav() {
+            document.getElementById("cart-sidebar").style.width = "0";
+        }
+    </script>
 </body>
 </html>
