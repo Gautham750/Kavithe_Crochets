@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floréal - Handcrafted Crochet Flowers</title>
+    <title>Kavithe Crochets - Handcrafted Crochet Flowers</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -11,7 +11,7 @@
 
     <header class="site-header">
         <div class="header-content">
-            <h1 class="logo">Floréal 🧶</h1>
+            <h1 class="logo">Kavithe Crochets 🧶</h1>
             <nav class="nav-menu">
                 <a href="#shop">Shop</a>
                 <a href="#about">About</a>
@@ -26,7 +26,35 @@
     <main class="container">
         <section id="shop" class="product-grid">
             </section>
+
+        <section id="about" class="page-section">
+            <h2>About Kavithe Crochets</h2>
+            <p>Welcome to Kavithe Crochets! We are a small, passionate team dedicated to creating beautiful, lifelike crochet flowers. Each bloom is meticulously handcrafted with love and high-quality yarn, ensuring a lasting piece of art that requires no water and stays vibrant forever. Our mission is to bring the timeless elegance of flowers into your home in a sustainable and unique way. Thank you for supporting our craft! 💖</p>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! For custom orders, bulk enquiries, or any questions, please reach out to us.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="add-to-cart">Send Message</button>
+            </form>
+            <p class="contact-info">
+                Email: <a href="mailto:hello@kavithecrochets.com">hello@kavithecrochets.com</a> | 
+                Follow us on <i class="fab fa-instagram"></i>
+            </p>
+        </section>
     </main>
+
+    <div id="product-modal" class="product-modal hidden">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+            <div id="modal-product-details" class="modal-product-details">
+                </div>
+        </div>
+    </div>
 
     <aside id="side-cart" class="side-cart hidden">
         <h2>Your Cart</h2>
@@ -43,7 +71,7 @@
     <div id="overlay" class="overlay hidden"></div>
 
     <footer class="site-footer">
-        <p>&copy; <span id="current-year"></span> Floréal. Handcrafted with Love in India.</p>
+        <p>&copy; <span id="current-year"></span> Kavithe Crochets. Handcrafted with Love in India.</p>
     </footer>
 
     <script src="script.js"></script>

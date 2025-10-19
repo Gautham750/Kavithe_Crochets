@@ -92,6 +92,7 @@ body {
     overflow: hidden;
     text-align: center;
     transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer; /* Added for the click functionality */
 }
 
 .product-card:hover {
@@ -154,7 +155,7 @@ body {
 }
 
 /* ------------------------------------- */
-/* Sidebar Cart Styles */
+/* Sidebar Cart Styles (Unchanged) */
 /* ------------------------------------- */
 
 .side-cart {
@@ -262,7 +263,7 @@ body {
     background-color: #333;
 }
 
-/* Overlay for background when cart is open */
+/* Overlay for background when cart is open (or modal is open) */
 .overlay {
     position: fixed;
     top: 0;
@@ -278,8 +279,188 @@ body {
     display: none;
 }
 
+/* ------------------------------------- */
+/* New: About & Contact Page Sections */
+/* ------------------------------------- */
+.page-section {
+    padding: 40px 0;
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.page-section h2 {
+    color: #a52a2a;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.page-section p {
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    text-align: justify;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-form button {
+    padding: 15px;
+    border: none;
+    font-size: 1.1em;
+}
+
+.contact-info {
+    text-align: center !important;
+    margin-top: 30px !important;
+}
+
+/* ------------------------------------- */
+/* New: Product Detail Modal Styles */
+/* ------------------------------------- */
+
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100; /* Higher than overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.product-modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    font-weight: 300;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: #a52a2a;
+}
+
+.modal-product-details {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.modal-image-gallery {
+    flex: 1;
+    min-width: 300px;
+}
+
+.main-modal-image {
+    width: 100%;
+    height: auto;
+    background-color: #fce4ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6em;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #a52a2a;
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.thumbnail-images div {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0e0;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: border-color 0.2s;
+}
+
+.thumbnail-images div:hover {
+    border-color: #a52a2a;
+}
+
+.modal-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.modal-info h3 {
+    font-size: 2em;
+    color: #a52a2a;
+    margin-bottom: 10px;
+}
+
+.modal-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8b0000;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.modal-info p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.modal-add-to-cart {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    /* ... (rest of media query unchanged) ... */
     .header-content {
         flex-direction: column;
         text-align: center;
@@ -292,5 +473,14 @@ body {
     }
     .side-cart {
         width: 100%; 
+    }
+    .modal-product-details {
+        flex-direction: column;
+    }
+    .modal-content {
+        padding: 20px;
+    }
+    .modal-image-gallery, .modal-info {
+        min-width: unset;
     }
 }
