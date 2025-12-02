@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Pink Tulip Bouquet",
             price: 1499,
             description: "An elegant set of twelve pink tulips, symbolizing perfect love. The long, flexible stems allow for beautiful arrangement in any vase. A stunning, maintenance-free centerpiece.",
-            images: ["🌷", "🌸", "🌱"],
+            images: ['<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">', '<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">'],
             colors: ["#FF69B4", "#FFC0CB", "#228B22"],
             colorImages: {
-                "#FF69B4": ["🌷", "💗"],
-                "#FFC0CB": ["🌸", "💕"],
-                "#228B22": ["🌱", "🟢"]
+                "#FF69B4": ['<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">', '<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">'],
+                "#FFC0CB": ['<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">', '<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">'],
+                "#228B22": ['<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">', '<img src="images/tulip_pink_1.jpg" alt="Pink Tulip">']
             }
         },
         {
@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Red Mushroom Keychain",
             price: 149,
             description: "A cute red mushroom keychain with white polka dots. Handcrafted with soft yarn, perfect for adding a touch of whimsy to your keys or bag.",
-            images: ["🍄", "🔴", "⚪"],
+            images: ['<img src="images/mushroom_red_1.jpg" alt="Red Mushroom">', '<img src="images/mushroom_red_1.jpg" alt="Red Mushroom">'],
             colors: ["#FF0000", "#FFFFFF"],
             colorImages: {
-                "#FF0000": ["🍄", "🔴"],
-                "#FFFFFF": ["⚪", "⬜"]
+                "#FF0000": ['<img src="images/mushroom_red_1.jpg" alt="Red Mushroom">', '<img src="images/mushroom_red_1.jpg" alt="Red Mushroom">'],
+                "#FFFFFF": ['<img src="images/mushroom_red_1.jpg" alt="Red Mushroom">', '<img src="images/mushroom_red_1.jpg" alt="Red Mushroom">']
             }
         },
         {
@@ -148,12 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Owl Keychain",
             price: 299,
             description: "A wise and cute little owl keychain with big eyes. Intricately crocheted with attention to detail.",
-            images: ["🦉", "🌙", "📚"],
-            colors: ["#800080", "#FFFF00", "#FFC0CB"],
+            images: ['<img src="images/owl_green_1.jpg" alt="Green Owl">', '<img src="images/owl_purple_1.jpg" alt="Purple Owl">', '<img src="images/owl_yellow_1.jpg" alt="Yellow Owl">'],
+            colors: ["#228B22", "#800080", "#FFFF00"],
             colorImages: {
-                "#800080": ["🟣", "💜"],
-                "#FFFF00": ["🟡", "⭐"],
-                "#FFC0CB": ["🌸", "💗"]
+                "#228B22": ['<img src="images/owl_green_1.jpg" alt="Green Owl">', '<img src="images/owl_green_1.jpg" alt="Green Owl">'],
+                "#800080": ['<img src="images/owl_purple_1.jpg" alt="Purple Owl">', '<img src="images/owl_purple_1.jpg" alt="Purple Owl">'],
+                "#FFFF00": ['<img src="images/owl_yellow_1.jpg" alt="Yellow Owl">', '<img src="images/owl_yellow_1.jpg" alt="Yellow Owl">']
             }
         }
     ];
