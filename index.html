@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kavithe Crochets - Handcrafted Crochet Flowers</title>
+    <title>Kavithe - Timeless Crochet Blooms</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header class="site-header">
         <div class="header-content">
-            <h1 class="logo">Kavithe Crochets 🧶</h1>
+            <h1 class="logo">KAVITHE</h1>
             <nav class="nav-menu">
                 <a href="#shop">Shop</a>
                 <a href="#about">About</a>
-                <a href="#contact">Contact</a>
                 <button id="view-cart-btn" class="cart-button">
-                    <i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)
+                    <i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span>
                 </button>
             </nav>
         </div>
     </header>
 
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h2>Timeless Blooms</h2>
+            <p>Handcrafted elegance that lasts forever.</p>
+            <a href="#shop" class="hero-btn">Shop Collection</a>
+        </div>
+    </section>
+
     <main class="container">
         <section id="shop" class="product-grid">
-            </section>
+            <!-- Products will be rendered here by JS -->
+        </section>
 
         <section id="about" class="page-section">
-            <h2>About Kavithe Crochets</h2>
-            <p>Welcome to Kavithe Crochets! We are a small, passionate team dedicated to creating beautiful, lifelike crochet flowers. Each bloom is meticulously handcrafted with love and high-quality yarn, ensuring a lasting piece of art that requires no water and stays vibrant forever. Our mission is to bring the timeless elegance of flowers into your home in a sustainable and unique way. Thank you for supporting our craft! 💖</p>
+            <h2>About Us</h2>
+            <p>We believe in the beauty of permanence. Kavithe creates meticulous, handcrafted crochet flowers that
+                bring a touch of nature's elegance to your space without the fleeting nature of real blooms.
+                Sustainable, artistic, and forever vibrant.</p>
         </section>
 
         <section id="contact" class="page-section">
-            <h2>Contact Us</h2>
-            <p>We'd love to hear from you! For custom orders, bulk enquiries, or any questions, please reach out to us.</p>
+            <h2>Contact</h2>
+            <p>For custom commissions or inquiries.</p>
             <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="add-to-cart">Send Message</button>
+                <input type="text" placeholder="NAME" required>
+                <input type="email" placeholder="EMAIL" required>
+                <textarea placeholder="MESSAGE" rows="5" required></textarea>
+                <button type="submit" class="add-to-cart">SEND</button>
             </form>
             <p class="contact-info">
-                Email: <a href="mailto:hello@kavithecrochets.com">hello@kavithecrochets.com</a> | 
-                Follow us on <i class="fab fa-instagram"></i>
+                <a href="mailto:hello@kavithecrochets.com">hello@kavithecrochets.com</a>
             </p>
         </section>
     </main>
@@ -52,28 +66,35 @@
         <div class="modal-content">
             <button id="close-modal-btn" class="close-modal-btn">&times;</button>
             <div id="modal-product-details" class="modal-product-details">
-                </div>
+                <!-- Details injected by JS -->
+            </div>
         </div>
     </div>
 
     <aside id="side-cart" class="side-cart hidden">
-        <h2>Your Cart</h2>
+        <div class="cart-header">
+            <h2>Shopping Bag</h2>
+            <button id="close-cart-btn" class="close-cart-btn">&times;</button>
+        </div>
         <div id="cart-items" class="cart-items">
-            <p id="empty-cart-message">Your cart is empty.</p>
+            <p id="empty-cart-message">Your bag is empty.</p>
         </div>
         <div class="cart-summary">
-            <p>Total: <span id="cart-total">₹ 0</span></p>
+            <div class="cart-total-row">
+                <span>Total</span>
+                <span id="cart-total">₹ 0</span>
+            </div>
             <button class="checkout-btn" disabled>Checkout</button>
         </div>
-        <button id="close-cart-btn" class="close-cart-btn">Close</button>
     </aside>
 
     <div id="overlay" class="overlay hidden"></div>
 
     <footer class="site-footer">
-        <p>&copy; <span id="current-year"></span> Kavithe Crochets. Handcrafted with Love in India.</p>
+        <p>&copy; <span id="current-year"></span> Kavithe. Handcrafted in India.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
