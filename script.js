@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Jumbo Mix Bouquet",
             price: 2399,
             description: "Our signature jumbo bouquet featuring a mix of roses, lilies, and greenery. Over 20 stems of various flowers, making a spectacular and lasting impression.",
-            images: ["💐", "💜", "💙"],
+            images: ['<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Mix Bouquet">', '<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Mix Bouquet">'],
             colors: ["#FF00FF", "#0000FF", "#228B22"],
             colorImages: {
-                "#FF00FF": ["💐", "💜"],
-                "#0000FF": ["💙", "🔵"],
-                "#228B22": ["🌿", "🟢"]
+                "#FF00FF": ['<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Bouquet">', '<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Bouquet">'],
+                "#0000FF": ['<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Bouquet">', '<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Bouquet">'],
+                "#228B22": ['<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Bouquet">', '<img src="images/jumbo_bouquet_1.jpg" alt="Jumbo Bouquet">']
             }
         },
         {
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Luffy's Straw Hat Keychain",
             price: 199,
             description: "A miniature crochet version of Luffy's iconic straw hat from One Piece. Features the signature yellow straw look and red ribbon. Perfect for anime fans.",
-            images: ["👒", "🏴‍☠️", "🍖"],
+            images: ['<img src="images/luffy_hat_1.jpg" alt="Luffy Hat">', '<img src="images/luffy_hat_1.jpg" alt="Luffy Hat">'],
             colors: ["#FFD700", "#FF0000"],
             colorImages: {
-                "#FFD700": ["👒", "🟡"],
-                "#FF0000": ["🎀", "🔴"]
+                "#FFD700": ['<img src="images/luffy_hat_1.jpg" alt="Luffy Hat">', '<img src="images/luffy_hat_1.jpg" alt="Luffy Hat">'],
+                "#FF0000": ['<img src="images/luffy_hat_1.jpg" alt="Luffy Hat">', '<img src="images/luffy_hat_1.jpg" alt="Luffy Hat">']
             }
         },
         {
@@ -135,12 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Jellyfish Keychain",
             price: 249,
             description: "An adorable jellyfish keychain with curly tentacles. Adds a fun, aquatic vibe to your accessories.",
-            images: ["🪼", "🌊", "🫧"],
+            images: ['<img src="images/jellyfish_blue_1.jpg" alt="Blue Jellyfish">', '<img src="images/jellyfish_purple_1.jpg" alt="Purple Jellyfish">', '<img src="images/jellyfish_pink_1.jpg" alt="Pink Jellyfish">'],
             colors: ["#800080", "#FFC0CB", "#0000FF"],
             colorImages: {
-                "#800080": ["🟣", "💜"],
-                "#FFC0CB": ["🌸", "💗"],
-                "#0000FF": ["🔵", "💙"]
+                "#800080": ['<img src="images/jellyfish_purple_1.jpg" alt="Purple Jellyfish">', '<img src="images/jellyfish_purple_1.jpg" alt="Purple Jellyfish">'],
+                "#FFC0CB": ['<img src="images/jellyfish_pink_1.jpg" alt="Pink Jellyfish">', '<img src="images/jellyfish_pink_1.jpg" alt="Pink Jellyfish">'],
+                "#0000FF": ['<img src="images/jellyfish_blue_1.jpg" alt="Blue Jellyfish">', '<img src="images/jellyfish_blue_1.jpg" alt="Blue Jellyfish">']
             }
         },
         {
@@ -366,9 +366,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update selected color
             selectedColor = event.target.dataset.color;
 
-            // Update images based on selected color
-            if (currentDetailProduct && currentDetailProduct.colorImages && currentDetailProduct.colorImages[selectedColor]) {
-                renderDetailSlider(currentDetailProduct.colorImages[selectedColor]);
+            // Scroll to first image of this color
+            const firstImageOfColor = detailImageGallery.querySelector(`[data-color="${selectedColor}"]`);
+            if (firstImageOfColor) {
+                firstImageOfColor.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
             }
         }
     });
