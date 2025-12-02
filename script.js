@@ -211,12 +211,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Renders the detail image slider
-    const renderDetailSlider = (images) => {
-        const sliderContent = images.map(img =>
-            `<div class="detail-slider-image">${img}</div>`
+    // Renders the detail image slider with all images
+    const renderDetailSlider = (allImagesData) => {
+        const sliderContent = allImagesData.map((imgData, index) =>
+            `<div class="detail-slider-image" data-color="${imgData.color}" data-index="${index}">${imgData.image}</div>`
         ).join('');
         detailImageGallery.innerHTML = sliderContent;
+        
+        // Disable scroll snap if only one image
+        if (allImagesData.length === 1) {
+            detailImageGallery.style.overflowX = 'hidden';
+            detailImageGallery.style.scrollSnapType = 'none';
+        } else {
+            detailImageGallery.style.overflowX = 'auto';
+            detailImageGallery.style.scrollSnapType = 'x mandatory';
+        }
     };
 
     // Renders the cart sidebar contents
@@ -287,11 +296,24 @@ document.addEventListener('DOMContentLoaded', () => {
         detailPrice.textContent = `₹ ${product.price.toLocaleString('en-IN')}`;
         detailDescription.textContent = product.description;
 
-        // Populate Images (use color-specific images if available)
-        const imagesToShow = (selectedColor && product.colorImages && product.colorImages[selectedColor])
-            ? product.colorImages[selectedColor]
-            : product.images;
-        renderDetailSlider(imagesToShow);
+        // Build complete image array with all colors
+        let allImagesData = [];
+        if (product.colorImages && Object.keys(product.colorImages).length > 0) {
+            // Combine all color images
+            product.colors.forEach(color => {
+                const colorImgs = product.colorImages[color] || [];
+                colorImgs.forEach(img => {
+                    allImagesData.push({ image: img, color: color });
+                });
+            });
+        } else {
+            // No color variants, just use regular images
+            product.images.forEach(img => {
+                allImagesData.push({ image: img, color: null });
+            });
+        }
+        
+        renderDetailSlider(allImagesData);
 
         // Populate Colors
         if (product.colors && product.colors.length > 0) {
